@@ -1,0 +1,36 @@
+/**
+  * TAILWIND UTILITY CLASSES TO BE ADDED HERE
+  * PUT COMMENTS TO INDICATE WHAT COMPONENT THEY ARE FOR
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/** THE MAIN CONTAINER THE WRAPS THE INTIRE APP. 
+    * THIS CLASS CAN BE FOUND IN THE _APP.JS FILE
+  */
+.main-container {
+  @apply...
+}
+
+.container {
+  @apply...
+}
