@@ -1,3 +1,0 @@
-/**
- * THIS IS THE SCHEMA FOR THE MODEL.
- */

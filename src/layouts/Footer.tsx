@@ -1,9 +1,11 @@
-import React from "react"
+import React from "react";
 
 export default function Footer() {
   return (
-    <footer>
-      <p>hello World</p>
+    <footer className="footer">
+      <div className="sub-container">
+        <h1>FOOTER</h1>
+      </div>
     </footer>
-  )
+  );
 }
