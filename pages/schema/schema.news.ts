@@ -19,6 +19,6 @@ const news = new mongoose.Schema({
   },
 });
 
-const News = mongoose.model("atene_news", news);
+const News = mongoose.model("ateneo_news", news);
 
 export default News;

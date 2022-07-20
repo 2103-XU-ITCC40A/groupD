@@ -8,7 +8,15 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
 import { details } from "../src/static/details.json";
 
-const Home = ({ payLoad }: { payLoad: SpotlightInterface }) => {
+const Home = ({ payLoad }: { payLoad: any }) => {
+  const {
+    news,
+    spotlights,
+  }: {
+    news: NewsInterfaceComponent;
+    spotlights: SpotlightInterfaceComponent;
+  } = payLoad;
+
   return (
     <div>
       <Head>
@@ -24,9 +32,9 @@ const Home = ({ payLoad }: { payLoad: SpotlightInterface }) => {
         {/* WELCOME COMPONENT */}
         <WelcomeComponent />
         {/* ATENEO SPOTLIGHT */}
-        <SplotlightComponent />
+        <SplotlightComponent spotlights={spotlights} />
         {/* ATENEO NEWS */}
-        <NewsComponent />
+        <NewsComponent news={news} />
       </main>
     </div>
   );
@@ -34,12 +42,19 @@ const Home = ({ payLoad }: { payLoad: SpotlightInterface }) => {
 
 // PRE-RENDER BEFORE IT REACHES THE CLIENT(BROWSER)
 export const getServerSideProps: GetServerSideProps = async () => {
-  const responseData = await fetch("http://localhost:3000/api/spotlight");
-  const data = await responseData.json();
+  const responseDataSpotlight = await fetch(
+    "http://localhost:3000/api/spotlight"
+  );
+  const responseDataNews = await fetch("http://localhost:3000/api/news");
+  const spotlights = await responseDataSpotlight.json();
+  const news = await responseDataNews.json();
 
   return {
     props: {
-      payLoad: data,
+      payLoad: {
+        spotlights,
+        news,
+      },
     },
   };
 };

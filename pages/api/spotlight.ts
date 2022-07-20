@@ -15,6 +15,7 @@ export default function handler(
         default:
           Spotlights.find()
             .then((responseData) => {
+              // NO ENCODING DYNAMIC OF IMAGE FILE BECUASE IMAGES DO NOT CHANGES FREQUENTLY.
               res.status(200).json({ payload: responseData });
             })
             .catch((responseError) => {

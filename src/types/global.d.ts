@@ -10,3 +10,10 @@ interface SpotlightInterface {
   title: string;
   imageUrl: string;
 }
+
+interface SpotlightInterfaceComponent {
+  payload: SpotlightInterface[];
+}
+interface NewsInterfaceComponent {
+  payload: NewsInterface[];
+}

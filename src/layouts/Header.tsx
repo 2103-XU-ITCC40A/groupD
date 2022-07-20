@@ -14,23 +14,24 @@ export default function Header() {
   if (typeof window !== "undefined") {
     window.onresize = () => setScreenWidth(window.innerWidth);
   }
-
   return (
     <nav className="sub-container">
       <div className="navigation-logo">
-        <Image
-          src={logo}
-          alt="website_logo"
-          height={screenWidth >= 1026 ? 43 : screenWidth >= 620 ? 38 : 30}
-          width={screenWidth >= 1026 ? 180 : screenWidth >= 620 ? 160 : 130}
-        />
+        <Link href="/">
+          <Image
+            src={logo}
+            alt="website_logo"
+            height={screenWidth >= 1026 ? 43 : screenWidth >= 620 ? 38 : 30}
+            width={screenWidth >= 1026 ? 180 : screenWidth >= 620 ? 160 : 130}
+          />
+        </Link>
       </div>
 
       <div className="navigation-links">
         <Link href="/">
           <p className="link">Home</p>
         </Link>
-        <Link href="/">
+        <Link href="/views/admissions">
           <p className="link">Admissions</p>
         </Link>
         <Link href="/">
