@@ -1,5 +1,8 @@
 import "../styles/globals.css";
+import "../styles/home.css";
 import type { AppProps } from "next/app";
+
+//UI COMPONENTS
 import { NextUIProvider } from "@nextui-org/react";
 
 // LAYOUTS FOR HEADER AND FOOTER
@@ -8,15 +11,18 @@ import Header from "../src/layouts/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <NextUIProvider>
-      {/* THIS IS THE HEADER CHILD COMPONENT */}
-      <Header />
+    <div className="main-container">
+      <NextUIProvider>
+        {/* THIS IS THE HEADER CHILD COMPONENT */}
+        <Header />
 
-      <Component {...pageProps} />
+        {/* THE MAIN COMPONENTS */}
+        <Component {...pageProps} />
 
-      {/* THIS IS THE FOOTER CHILD COMPONENT */}
-      <Footer />
-    </NextUIProvider>
+        {/* THIS IS THE FOOTER CHILD COMPONENT */}
+        <Footer />
+      </NextUIProvider>
+    </div>
   );
 }
 

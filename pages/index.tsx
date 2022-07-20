@@ -1,8 +1,22 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import NewsComponent from "../src/components/NewsComponent";
+import SplotlightComponent from "../src/components/SpotlightComponent";
+import WelcomeComponent from "../src/components/WelcomeComponent";
+
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
+
 import { details } from "../src/static/details.json";
 
-const Home: NextPage = () => {
+const Home = ({ payLoad }: { payLoad: any }) => {
+  const {
+    news,
+    spotlights,
+  }: {
+    news: NewsInterfaceComponent;
+    spotlights: SpotlightInterfaceComponent;
+  } = payLoad;
+
   return (
     <div>
       <Head>
@@ -15,18 +29,34 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        {/**
-         * THIS IS FOR TEMPLATING PURPOSES. THIS WILL SERVE A GUIDE TO MY GROUPMATES AS TO WHAT CONTENTS TO BE PUT HERE.
-         *
-         * THIS IS THE LADING PAGE OF THE WEBISTE
-         *
-         * THIS WILL HAVE MORE COMPONENTS TO BE ADDED SOON AS WE DEVELOP AND WRITE MORE CODES
-         * DO NOT INSTALL ANY OTHER PACKAGES UNLESS MANDATED.
-         * UTILIZE THE PACKAGES THAT ARE AVAILABLE IN THE PACKAGE.JSON FILE
-         */}
+        {/* WELCOME COMPONENT */}
+        <WelcomeComponent />
+        {/* ATENEO SPOTLIGHT */}
+        <SplotlightComponent spotlights={spotlights} />
+        {/* ATENEO NEWS */}
+        <NewsComponent news={news} />
       </main>
     </div>
   );
+};
+
+// PRE-RENDER BEFORE IT REACHES THE CLIENT(BROWSER)
+export const getServerSideProps: GetServerSideProps = async () => {
+  const responseDataSpotlight = await fetch(
+    "http://localhost:3000/api/spotlight"
+  );
+  const responseDataNews = await fetch("http://localhost:3000/api/news");
+  const spotlights = await responseDataSpotlight.json();
+  const news = await responseDataNews.json();
+
+  return {
+    props: {
+      payLoad: {
+        spotlights,
+        news,
+      },
+    },
+  };
 };
 
 export default Home;
