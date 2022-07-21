@@ -36,7 +36,7 @@ export default function SideMobileNavigation({
           <Link href="/">
             <p className="closing-header-link">Home</p>
           </Link>
-          <Link href="/">
+          <Link href="/views/admissions">
             <p className="closing-header-link">Admissions</p>
           </Link>
           <Link href="/">

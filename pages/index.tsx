@@ -7,16 +7,9 @@ import WelcomeComponent from "../src/components/WelcomeComponent";
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 
 import { details } from "../src/static/details.json";
+import { ATENEO_NEWS, ATENE_SPOTLIGHT } from "../src/static/list";
 
-const Home = ({ payLoad }: { payLoad: any }) => {
-  const {
-    news,
-    spotlights,
-  }: {
-    news: NewsInterfaceComponent;
-    spotlights: SpotlightInterfaceComponent;
-  } = payLoad;
-
+const Home = () => {
   return (
     <div>
       <Head>
@@ -32,31 +25,31 @@ const Home = ({ payLoad }: { payLoad: any }) => {
         {/* WELCOME COMPONENT */}
         <WelcomeComponent />
         {/* ATENEO SPOTLIGHT */}
-        <SplotlightComponent spotlights={spotlights} />
+        <SplotlightComponent />
         {/* ATENEO NEWS */}
-        <NewsComponent news={news} />
+        <NewsComponent />
       </main>
     </div>
   );
 };
 
 // PRE-RENDER BEFORE IT REACHES THE CLIENT(BROWSER)
-export const getServerSideProps: GetServerSideProps = async () => {
-  const responseDataSpotlight = await fetch(
-    "http://localhost:3000/api/spotlight"
-  );
-  const responseDataNews = await fetch("http://localhost:3000/api/news");
-  const spotlights = await responseDataSpotlight.json();
-  const news = await responseDataNews.json();
+// export const getServerSideProps: GetServerSideProps = async () => {
+// const responseDataSpotlight = await fetch(
+//   "http://localhost:3000/api/spotlight"
+// );
+// const responseDataNews = await fetch("http://localhost:3000/api/news");
+// const spotlights = await responseDataSpotlight.json();
+// const news = await responseDataNews.json();
 
-  return {
-    props: {
-      payLoad: {
-        spotlights,
-        news,
-      },
-    },
-  };
-};
+//   return {
+//     props: {
+//       payLoad: {
+//         spotlights,
+//         news,
+//       },
+//     },
+//   };
+// };
 
 export default Home;

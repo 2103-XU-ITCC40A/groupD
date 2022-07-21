@@ -5,15 +5,15 @@ interface NewsInterface {
   description: string;
   photoUrl: string;
 }
+interface NewsInterfaceComponent {
+  payload: NewsInterface[];
+}
+
 interface SpotlightInterface {
   name: string;
   title: string;
   imageUrl: string;
 }
-
 interface SpotlightInterfaceComponent {
   payload: SpotlightInterface[];
-}
-interface NewsInterfaceComponent {
-  payload: NewsInterface[];
 }
