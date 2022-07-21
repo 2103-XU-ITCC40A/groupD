@@ -10,6 +10,8 @@ import { details } from "../src/static/details.json";
 import { ATENEO_NEWS, ATENE_SPOTLIGHT } from "../src/static/list";
 
 const Home = () => {
+
+
   return (
     <div>
       <Head>

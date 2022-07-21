@@ -283,14 +283,24 @@ nav {
 
 /* FOOTER */
 .footer {
-    height: 500px;
     background-color: var(--secondary_black);
     color: #FFFFFF;
+    font-family: 'poppins', sans-serif;
+}
+
+.footer-year {
+    font-family: 'poppins', sans-serif;
+}
+
+.footer-headers {
+    font-family: 'poppins', sans-serif;
 }
 
 /* EACH COMPONENT*/
-.each-right-header, .each-right-time,
-.each-right-description, .notFound{
+.each-right-header,
+.each-right-time,
+.each-right-description,
+.notFound {
     font-family: 'poppins', sans-serif;
 }
 

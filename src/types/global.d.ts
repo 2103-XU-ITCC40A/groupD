@@ -17,3 +17,6 @@ interface SpotlightInterface {
 interface SpotlightInterfaceComponent {
   payload: SpotlightInterface[];
 }
+
+// HOOK INTERFACE
+interface HookInterface {}
