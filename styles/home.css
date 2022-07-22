@@ -300,7 +300,9 @@ nav {
 .each-right-header,
 .each-right-time,
 .each-right-description,
-.notFound {
+.notFound,
+.contact-title,
+.contact-header-form {
     font-family: 'poppins', sans-serif;
 }
 

@@ -2,6 +2,15 @@ import One from "../../public/images/one.jpg";
 import Two from "../../public/images/two.jpg";
 import Three from "../../public/images/three.jpg";
 
+const selectTopic = [
+  { id: 0, topicName: "Enrollment" },
+  { id: 1, topicName: "Addmission" },
+  { id: 2, topicName: "Entrance Exam" },
+  { id: 3, topicName: "Collges and Schools" },
+  { id: 4, topicName: "Scholarships" },
+  { id: 5, topicName: "Others" },
+];
+
 const ATENE_SPOTLIGHT = [
   {
     _id: "62cce065ae2f52e7af31f16b",
@@ -106,4 +115,4 @@ const ATENEO_NEWS = [
   },
 ];
 
-export { ATENE_SPOTLIGHT, ATENEO_NEWS };
+export { ATENE_SPOTLIGHT, ATENEO_NEWS, selectTopic };

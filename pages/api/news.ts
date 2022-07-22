@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 // DATABASE CONNECTION
-import dbConnection from "../utils/databaseConnection";
+import dbConnection from "../utils/dbConnection";
 
 // NEWS SCHEMA
 import News from "../schema/schema.news";

@@ -8,6 +8,10 @@ import { NextUIProvider } from "@nextui-org/react";
 // CONTEXT PROVIDER WRAPPER FOR THE APP
 import context from "../src/context/context";
 
+// TOAST
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 // LAYOUTS FOR HEADER AND FOOTER
 import Footer from "../src/layouts/Footer";
 import Header from "../src/layouts/Header";
@@ -22,6 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
           {/* THE MAIN COMPONENTS */}
           <Component {...pageProps} />
+
+          <ToastContainer />
 
           {/* THIS IS THE FOOTER CHILD COMPONENT */}
           <Footer />

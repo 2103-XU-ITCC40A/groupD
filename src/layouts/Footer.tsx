@@ -7,9 +7,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="footer">
-      <div className="sub-container py-14 px-4 sm:px-0">
+      <div className="sub-container py-14 px-4 sm:px-5 md:px-2">
         {/* CONTAINER AND LINKS | TOP */}
-        <div className=" mb-10  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 md:gap-7">
+        <div className="mb-10  grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-5 gap-10 md:gap-7">
           <div className="col-span-1 sm:col-span-2">
             <Link href="/">
               <Image src={logo} alt="website_logo" height={44} width={200} />
