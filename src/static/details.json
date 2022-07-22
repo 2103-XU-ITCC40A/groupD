@@ -1,7 +1,17 @@
 {
-  "details" : {
+  "details": {
     "home_page": {
-      "title" : "Xavier University - Ateneo de Cagayan"
+      "title": "Xavier University - Ateneo de Cagayan"
+    },
+    "addmissions_page": {
+      "title": "Xavier University | Addmission"
+    },
+    "contact_page": {
+      "title": "Xavier University | Contact"
     }
+  },
+  "contacts": {
+    "title": "Contact Us!",
+    "header": "Send your message here!"
   }
 }

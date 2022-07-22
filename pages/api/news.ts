@@ -1,5 +1,10 @@
+// REQ AND RES INTERFACES
 import type { NextApiRequest, NextApiResponse } from "next";
-import dbConnection from "../utils/databaseConnection";
+
+// DATABASE CONNECTION
+import dbConnection from "../utils/dbConnection";
+
+// NEWS SCHEMA
 import News from "../schema/schema.news";
 
 export default function handler(
@@ -8,18 +13,17 @@ export default function handler(
 ) {
   dbConnection
     .then(() => {
-      switch (req.method) {
-        case "POST":
-          res.status(200).json({ payload: req.body });
-          break;
-        default:
-          News.find()
-            .then((responseData) => {
-              res.status(200).json({ payload: responseData });
-            })
-            .catch((responseError) => {
-              res.status(500).json({ payload: responseError });
-            });
+      if (req.method === "GET") {
+        News.find()
+          .then((responseData) => {
+            // NO ENCODING DYNAMIC OF IMAGE FILE BECUASE IMAGES DO NOT CHANGES FREQUENTLY.
+            res.status(200).json({ payload: responseData });
+          })
+          .catch((responseError) => {
+            res.status(500).json({ payload: responseError });
+          });
+      } else {
+        return res.status(405).json({ serverMessage: "Method not allowed" });
       }
     })
     .catch((databaseError) => {

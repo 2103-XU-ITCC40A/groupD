@@ -14,6 +14,7 @@ export default function Header() {
   if (typeof window !== "undefined") {
     window.onresize = () => setScreenWidth(window.innerWidth);
   }
+
   return (
     <nav className="sub-container">
       <div className="navigation-logo">
@@ -34,16 +35,16 @@ export default function Header() {
         <Link href="/views/admissions">
           <p className="link">Admissions</p>
         </Link>
-        <Link href="/">
+        <Link href="/notFound">
           <p className="link">Academics</p>
         </Link>
-        <Link href="/">
+        <Link href="/notFound1">
           <p className="link">Scholarships</p>
         </Link>
-        <Link href="/">
+        <Link href="/notFound2">
           <p className="link">About</p>
         </Link>
-        <Link href="/">
+        <Link href="/views/contacts">
           <p className="link-contacts">Contacts</p>
         </Link>
         {/* TAB MENU WHEN TABLET AND MOBILE */}
