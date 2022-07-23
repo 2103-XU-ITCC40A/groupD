@@ -1,0 +1,57 @@
+/*GOOGLE FONT*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@200;400;500;700&display=swap');
+
+/*TAILWIND DIRECTIVES*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*GLOBAL SETTING*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*MAIN CONTAINER*/
+.main-container {
+  @apply min-h-screen;
+}
+
+.sub-container {
+  @apply max-w-screen-lg m-auto
+}
+
+/* ATENEO SPOTLIGHT */
+.ateneo-spotlight-container-body {
+  @apply my-10 grid gap-10 grid-cols-1 md:grid-cols-3;
+}
+
+.more-button {
+  @apply flex justify-center;
+}
+
+/* EACH NEWS */
+.each-news-container {
+  @apply min-h-[500px] grid grid-cols-1 md:grid-cols-2 mb-10 mx-4 md:mx-10 my-4;
+}
+
+.each-left-content {
+  @apply flex justify-center my-5 mr-0 md:mr-5;
+}
+
+.each-right-content {
+  @apply flex flex-col justify-center items-center
+}
+
+.each-right-header {
+  @apply text-[1.6rem] md:text-[2rem] lg:text-[2.5rem] text-center leading-tight px-5 md:px-0
+}
+
+.each-right-time {
+  @apply self-center md:self-start
+}
+
+.each-right-description {
+  @apply text-2xl text-justify indent-10 px-5 md:px-0 py-6 font-normal leading-9
+}
