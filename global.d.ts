@@ -1,12 +1,16 @@
-// TYPES AND INTERFACES
+// TYPES AND INTERFACES NEWS && SPOTLIGHT
 interface NewsInterface {
+  _id: string;
   title: string;
-  timeDate: Date;
+  timeDate: string;
   description: string;
   photoUrl: string;
 }
 interface NewsInterfaceComponent {
   payload: NewsInterface[];
+}
+interface NewsInterfaceComponentSingle {
+  payload: NewsInterface;
 }
 
 interface SpotlightInterface {
