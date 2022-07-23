@@ -4,9 +4,11 @@ import One from "../../public/images/one.jpg";
 import Two from "../../public/images/two.jpg";
 import Three from "../../public/images/three.jpg";
 import { ATENEO_NEWS, ATENE_SPOTLIGHT } from "../static/list";
-import { Button } from "@nextui-org/react";
+import { Button, Modal, Popover, Text } from "@nextui-org/react";
 
 function SpotlightComponent() {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
   return (
     <div className="ateneo-spotlight">
       <div className="sub-container ateneo-spotlight-main-container">
@@ -17,7 +19,10 @@ function SpotlightComponent() {
           {ATENE_SPOTLIGHT.map((spotlight, index) => {
             return (
               <div className="ateneo-spotlight-body-child" key={index}>
-                <div className="ateneo-spotlight-item-image">
+                <div
+                  className="ateneo-spotlight-item-image"
+                  onClick={() => setIsModalOpen(true)}
+                >
                   <Image
                     style={{
                       borderRadius: 20,
@@ -39,8 +44,30 @@ function SpotlightComponent() {
 
         {/*MORE BUTTON*/}
         <div className="more-button">
-          <button className="button-more-spotlight">Show More</button>
+          <Popover>
+            <Popover.Trigger>
+              {/* <Button auto flat>
+                Show More
+              </Button> */}
+              <button className="button-more-spotlight">See More</button>
+            </Popover.Trigger>
+            <Popover.Content>
+              <Text css={{ p: "$10" }}>No data available at the moment.</Text>
+            </Popover.Content>
+          </Popover>
         </div>
+
+        <Modal
+          closeButton
+          aria-labelledby="modal-title"
+          open={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        >
+          <Modal.Header>
+            <h3>No data</h3>
+          </Modal.Header>
+          <Modal.Footer />
+        </Modal>
       </div>
     </div>
   );

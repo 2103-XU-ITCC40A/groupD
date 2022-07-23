@@ -115,4 +115,14 @@ const ATENEO_NEWS = [
   },
 ];
 
-export { ATENE_SPOTLIGHT, ATENEO_NEWS, selectTopic };
+const ABOUT = ["  Sample one", "Sample Two", "Sample Three"];
+const SERVICES = [
+  "Ateneo News",
+  "Ateneo Events",
+  "Admission",
+  "Finance | Testing Center",
+  "Atene Life",
+];
+const SOCIALS = ["Facebook", "Youtube", "Instagram"];
+
+export { ATENE_SPOTLIGHT, ATENEO_NEWS, selectTopic, ABOUT, SERVICES, SOCIALS };

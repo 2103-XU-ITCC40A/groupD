@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import details from "../../src/static/details.json";
 import { selectTopic } from "../../src/static/list";
 import { toast } from "react-toastify";
+import sendMessage2 from "../../src/functions/sendMessage";
 
 export default function Contacts() {
   // FORM STATE
@@ -16,67 +17,52 @@ export default function Contacts() {
 
   // BUTTON STATE
   const [button, setButton] = useState("Send");
+  const [errorCaution, setErrorCaution] = useState(false);
 
-  // SEND MESSAGE
-  const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
+  const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (
-      form.email === "" ||
-      form.name === "" ||
-      form.topic === "" ||
-      form.message === ""
-    ) {
-      toast.error("Please fill all the fields", {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+    sendMessage2(form.email, form.name, form.topic, form.message)
+      .then((res) => {
+        if (res === "Please fill in all fields") {
+          setErrorCaution(true);
+          toast.error("It should not be empty!", {
+            position: "bottom-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setTimeout(() => {
+            setErrorCaution(false);
+          }, 4000);
+        } else {
+          setButton("Sent");
+          toast.success("Your message wes sent successfuly", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setForm({
+            name: "",
+            email: "",
+            topic: "",
+            message: "",
+          });
+          setTimeout(() => {
+            setButton("Send");
+          }, 3000);
+        }
+      })
+      .catch((err) => {
+        throw new Error(err);
       });
-    } else {
-      try {
-        setButton("Sending");
-        await fetch("/api/message", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: form.name,
-            title: form.topic,
-            messageContent: form.message,
-            email: form.email,
-          }),
-        });
-
-        setButton("Sent");
-        toast.success("Your message wes sent successfuly", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-
-        setForm({
-          name: "",
-          email: "",
-          topic: "",
-          message: "",
-        });
-
-        setTimeout(() => {
-          setButton("Send");
-        }, 3000);
-      } catch (error) {
-        console.error(error);
-      }
-    }
   };
 
   return (
@@ -110,6 +96,7 @@ export default function Contacts() {
               type="text"
               label="Fullname"
               placeholder="Enter your fullname"
+              status={errorCaution ? "error" : "default"}
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
             />
@@ -117,6 +104,7 @@ export default function Contacts() {
               type="email"
               label="Email Address"
               placeholder="Enter your email address"
+              status={errorCaution ? "error" : "default"}
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
@@ -137,6 +125,7 @@ export default function Contacts() {
             <Textarea
               label="Message"
               placeholder="Explain your message..."
+              status={errorCaution ? "error" : "default"}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
             />
