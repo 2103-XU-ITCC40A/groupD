@@ -1,7 +1,7 @@
-import * as mongoose from "mongoose";
+import { Schema, model, models } from "mongoose";
 
-const spotlights = new mongoose.Schema({
-  name: {
+const spotlights = new Schema({
+  imageName: {
     type: String,
     required: true,
   },
@@ -15,6 +15,7 @@ const spotlights = new mongoose.Schema({
   },
 });
 
-const Spotlights = mongoose.model("ateneo_spotlights", spotlights);
+const Spotlights =
+  models.ateneo_spotlights || model("ateneo_spotlights", spotlights);
 
 export default Spotlights;

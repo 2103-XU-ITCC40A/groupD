@@ -1,20 +1,27 @@
 import mongoose from "mongoose";
 
-// DATABASE CONNECTION
+// DATABASE CONNECTION STRING
+const databaseConnection = process.env.MONGODB_STRING_CONNECTION || "";
+const databaseConnectionName = process.env.MONGODB_STRING_CONNECTION_NAME || "";
 const databaseConnectionCredentials =
-  process.env.DATABASE_CONNECTION_CREDENTIALS || "";
+  process.env.MONGODB_STRING_CONNECTION_PASSWORD || "";
+const databaseConnectionAccess =
+  process.env.MONGODB_STRING_CONNECTION_ACCESSABILITY || "";
+
+console.log(
+  `${databaseConnection}${databaseConnectionName}${databaseConnectionAccess}`
+);
 
 // INITIALIZE DATABASE CONNECTION
 const dbConnection = mongoose
-  .connect("mongodb://localhost:27017/xavier")
+  .connect(
+    `${databaseConnection}${databaseConnectionName}${databaseConnectionAccess}`
+  )
   .then((res) => {
     return res;
   })
-  .catch((err) => {
-    throw new Error(`Database connection error: ${err}`);
+  .catch(() => {
+    throw new Error("Database connection error");
   });
-
-// DISCONNECT DATABASE CONNECTION FOR TESTING PURPOSES
-// mongoose.connection.close();
 
 export default dbConnection;

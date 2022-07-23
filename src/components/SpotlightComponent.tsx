@@ -6,7 +6,11 @@ import Three from "../../public/images/three.jpg";
 import { ATENEO_NEWS, ATENE_SPOTLIGHT } from "../static/list";
 import { Button, Modal, Popover, Text } from "@nextui-org/react";
 
-function SpotlightComponent() {
+function SpotlightComponent({
+  spotlightsData,
+}: {
+  spotlightsData: SpotlightInterfaceComponent;
+}) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   return (
@@ -16,7 +20,7 @@ function SpotlightComponent() {
 
         {/* BODY OF THE SPOTLIGHT */}
         <main className="ateneo-spotlight-container-body">
-          {ATENE_SPOTLIGHT.map((spotlight, index) => {
+          {spotlightsData.payload.map((spotlight, index) => {
             return (
               <div className="ateneo-spotlight-body-child" key={index}>
                 <div
@@ -46,9 +50,6 @@ function SpotlightComponent() {
         <div className="more-button">
           <Popover>
             <Popover.Trigger>
-              {/* <Button auto flat>
-                Show More
-              </Button> */}
               <button className="button-more-spotlight">See More</button>
             </Popover.Trigger>
             <Popover.Content>
