@@ -16,9 +16,12 @@ import { ToastContainer } from "react-toastify";
 import Footer from "../src/layouts/Footer";
 import Header from "../src/layouts/Header";
 
+import NextNProgress from "nextjs-progressbar";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="main-container">
+      <NextNProgress color="blue" />
       <NextUIProvider>
         <context.Provider value={{}}>
           {/* THIS IS THE HEADER CHILD COMPONENT */}

@@ -2,6 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo/logo_white.png";
+import { BsFacebook, BsYoutube } from "react-icons/bs";
+import { RiInstagramFill } from "react-icons/ri";
+import { ABOUT, SERVICES, SOCIALS } from "../static/list";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -26,49 +29,54 @@ export default function Footer() {
               SOCIAL MEDIA
             </p>
             <div className="flex flex-col mt-5">
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
+              {SOCIALS.map((item, index) => {
+                return (
+                  <Link href="/" key={index}>
+                    {item === "Facebook" ? (
+                      <a className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2">
+                        <BsFacebook /> <span className="ml-3">{item}</span>
+                      </a>
+                    ) : item === "Instagram" ? (
+                      <a className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2">
+                        <RiInstagramFill />
+                        <span className="ml-3">{item}</span>
+                      </a>
+                    ) : (
+                      <a className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2">
+                        <BsYoutube /> <span className="ml-3">{item}</span>
+                      </a>
+                    )}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div>
             <p className="footer-headers font-bold">SERVICES</p>
             <div className="flex flex-col mt-5">
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
+              {SERVICES.map((item, index) => {
+                return (
+                  <Link href="/" key={index}>
+                    <a className="duration-200 hover:-translate-y-2 my-2">
+                      {item}
+                    </a>
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div>
             <p className="footer-headers font-bold">ABOUT</p>
             <div className="flex flex-col mt-5">
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
-              <Link href="/">
-                <a>asdas</a>
-              </Link>
+              {ABOUT.map((item, index) => {
+                return (
+                  <Link href="/" key={index}>
+                    <a className="duration-200 hover:-translate-y-2 my-2">
+                      {item}
+                    </a>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -76,8 +84,8 @@ export default function Footer() {
         <div className="">
           <div className="border-b-2 mb-10" />
           <div className="flex flex-col justify-between md:flex-row">
-            <div>sdfsd</div>
-            <div>sdfsd</div>
+            <div>Xavier Ateneo</div>
+            <div>Cagayan de Oro City</div>
           </div>
         </div>
       </div>

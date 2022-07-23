@@ -20,6 +20,7 @@ export default function Header() {
       <div className="navigation-logo">
         <Link href="/">
           <Image
+            className="hover:cursor-pointer"
             src={logo}
             alt="website_logo"
             height={screenWidth >= 1026 ? 43 : screenWidth >= 620 ? 38 : 30}

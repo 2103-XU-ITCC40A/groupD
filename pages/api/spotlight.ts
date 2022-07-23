@@ -6,6 +6,7 @@ import dbConnection from "../utils/dbConnection";
 
 // SPOTLIGHT SCHEMA
 import Spotlights from "../schema/schema.spotlight";
+import mongoose from "mongoose";
 
 export default function handler(
   req: NextApiRequest,
@@ -29,4 +30,6 @@ export default function handler(
     .catch((databaseError) => {
       throw new Error(databaseError);
     });
+
+  // mongoose.connection.close();
 }

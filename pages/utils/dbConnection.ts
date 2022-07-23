@@ -11,10 +11,10 @@ const dbConnection = mongoose
     return res;
   })
   .catch((err) => {
-    return err;
+    throw new Error(`Database connection error: ${err}`);
   });
 
-// DISCONNECT DATABASE CONNECTION
-mongoose.connection.close();
+// DISCONNECT DATABASE CONNECTION FOR TESTING PURPOSES
+// mongoose.connection.close();
 
 export default dbConnection;

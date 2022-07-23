@@ -7,7 +7,7 @@ import dbConnection from "../utils/dbConnection";
 // SPOTLIGHT SCHEMA
 import Message from "../schema/schema.messages";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default function handler(req: any, res: any) {
   const { name, title, messageContent, email } = req.body;
 
   dbConnection
