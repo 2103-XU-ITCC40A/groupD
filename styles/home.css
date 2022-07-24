@@ -302,7 +302,8 @@ nav {
 .each-right-description,
 .notFound,
 .contact-title,
-.contact-header-form {
+.contact-header-form,
+.back {
     font-family: 'poppins', sans-serif;
 }
 

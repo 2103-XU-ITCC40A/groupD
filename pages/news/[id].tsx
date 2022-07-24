@@ -4,6 +4,11 @@ import { ATENEO_NEWS } from "../../src/static/list";
 import Image from "next/image";
 import mama from "../../public/images/school.jpg";
 import { GetServerSideProps, GetStaticProps } from "next";
+import Link from "next/link";
+import { Button } from "@nextui-org/react";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import Data from "../../src/components/Data";
+import Loading from "../../src/layouts/Loading";
 
 export default function EachNews() {
   // THIS IS JUST A DYNAMIC WEBPAGE THAT FETCH FROM STATIC DATA.
@@ -26,31 +31,14 @@ export default function EachNews() {
     news();
   }, []);
 
+  if (!newsOne) {
+    return <Loading />;
+  }
+
   return (
     <div className="sub-container">
-      {/* <h1>{JSON.stringify(newsOne)}</h1> */}
-      <div className="each-news-container">
-        <div className="flex justify-center items-center mr-0 md:mr-5">
-          <Image
-            style={{
-              borderRadius: 5,
-            }}
-            src={newsOne?.payload.photoUrl || mama}
-            alt="sdfs"
-            width={550}
-            height={500}
-          />
-        </div>
-        <div className="each-right-content ">
-          <h1 className="each-right-header text-center md:text-left mt-8 md:mt-0">
-            {newsOne?.payload.title}
-          </h1>
-          <p className="each-right-time">{newsOne?.payload.timeDate}</p>
-          <h1 className="each-right-description">
-            {newsOne?.payload.description}
-          </h1>
-        </div>
-      </div>
+      {/* DATA */}
+      <Data uniqueId={uniqueId} newsOne={newsOne} />
     </div>
   );
 }
