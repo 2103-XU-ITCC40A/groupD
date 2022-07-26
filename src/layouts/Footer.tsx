@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../public/logo/logo_white.png";
+import logo from "../../public/logo/xa.png";
 import { BsFacebook, BsYoutube } from "react-icons/bs";
 import { RiInstagramFill } from "react-icons/ri";
 import { ABOUT, SERVICES, SOCIALS } from "../static/list";
@@ -15,13 +15,13 @@ export default function Footer() {
         <div className="mb-10  grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-5 gap-10 md:gap-7">
           <div className="col-span-1 sm:col-span-2">
             <Link href="/">
-              <Image src={logo} alt="website_logo" height={44} width={200} />
+              <Image src={logo} alt="website_logo" height={54} width={200} />
             </Link>
             <p className="my-8 font-medium leading-5 w-64 sm:w-60">
-              {"Them and one moving the won't may, moving saw wherein."}
+              {"Corrales Avenue, Cagayan de Oro City, Philippines"}
             </p>
             <p className="footer-year text-zinc-400 text-sm">
-              {`© ${currentYear} Developed by Eluvent Inc.`}
+              {`© ${currentYear} Xavier University - Ateneo de Cagayan`}
             </p>
           </div>
           <div>
@@ -32,18 +32,36 @@ export default function Footer() {
               {SOCIALS.map((item, index) => {
                 return (
                   <Link href="/" key={index}>
-                    {item === "Facebook" ? (
-                      <a className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2">
-                        <BsFacebook /> <span className="ml-3">{item}</span>
+                    {item.social === "Facebook" ? (
+                      // new tab anchor tag
+                      <a
+                        className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2 text-[#A19158]"
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <BsFacebook />
+                        <span className="ml-3">{item.social}</span>
                       </a>
-                    ) : item === "Instagram" ? (
-                      <a className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2">
+                    ) : item.social === "Instagram" ? (
+                      <a
+                        className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2 text-[#A19158]"
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <RiInstagramFill />
-                        <span className="ml-3">{item}</span>
+                        <span className="ml-3">{item.social}</span>
                       </a>
                     ) : (
-                      <a className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2">
-                        <BsYoutube /> <span className="ml-3">{item}</span>
+                      <a
+                        className="flex flex-row items-center duration-200 hover:-translate-y-2 my-2 text-[#A19158]"
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <BsYoutube />
+                        <span className="ml-3">{item.social}</span>
                       </a>
                     )}
                   </Link>
@@ -57,7 +75,7 @@ export default function Footer() {
               {SERVICES.map((item, index) => {
                 return (
                   <Link href="/" key={index}>
-                    <a className="duration-200 hover:-translate-y-2 my-2">
+                    <a className="duration-200 hover:-translate-y-2 my-2 text-[#A19158]">
                       {item}
                     </a>
                   </Link>
@@ -71,7 +89,7 @@ export default function Footer() {
               {ABOUT.map((item, index) => {
                 return (
                   <Link href="/" key={index}>
-                    <a className="duration-200 hover:-translate-y-2 my-2">
+                    <a className="duration-200 hover:-translate-y-2 my-2 text-[#A19158]">
                       {item}
                     </a>
                   </Link>

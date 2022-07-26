@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@nextui-org/react";
 import close from "../../public/icons/close.png";
-import logo from "../../public/logo/logo.png";
+import logo from "../../public/logo/xa.png";
 import facebook from "../../public/social/facebook.png";
 import instagram from "../../public/social/instagram.png";
 import youtube from "../../public/social/youtube.png";
@@ -18,16 +18,16 @@ export default function SideMobileNavigation({
     <div className="side-mobile-navigation">
       <div className="container-side-mobile-navigation">
         {/* CLOSING HEADER SIDE MOBILE */}
-        <nav className="closing-header-side-mobile">
+        <nav className="closing-header-side-mobile bg-[#3A53A4]">
           <div className="closing-header-navigation-logo">
-            <Image src={logo} alt="website_logo" height={30} width={130} />
+            <Image src={logo} alt="website_logo" height={35} width={130} />
           </div>
           <Button
             light
             auto
             onClick={() => setIsSideMobileNavigationOpen(false)}
           >
-            <Image src={close} width={35} height={35} alt="close" />
+            <Image src={close} width={20} height={20} alt="close" />
           </Button>
         </nav>
 

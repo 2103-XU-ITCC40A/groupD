@@ -11,6 +11,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 const Data = ({ uniqueId, newsOne }: { uniqueId: any; newsOne: any }) => {
   return (
     <div className="each-news-container">
+      <h1>sdfsdf</h1>
       <div className="flex justify-center items-center mr-0 md:mr-5">
         <Image
           style={{
