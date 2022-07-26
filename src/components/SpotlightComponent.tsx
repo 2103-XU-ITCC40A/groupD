@@ -9,7 +9,7 @@ import { Button, Modal, Popover, Text } from "@nextui-org/react";
 function SpotlightComponent({
   spotlightsData,
 }: {
-  spotlightsData: SpotlightInterfaceComponent;
+  spotlightsData: SpotlightInterface[];
 }) {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
@@ -20,7 +20,7 @@ function SpotlightComponent({
 
         {/* BODY OF THE SPOTLIGHT */}
         <main className="ateneo-spotlight-container-body">
-          {spotlightsData.payload.map((spotlight, index) => {
+          {spotlightsData.map((spotlight, index) => {
             return (
               <div className="ateneo-spotlight-body-child" key={index}>
                 <div
@@ -29,13 +29,12 @@ function SpotlightComponent({
                 >
                   <Image
                     style={{
-                      borderRadius: 20,
-                      borderWidth: 5,
+                      borderRadius: 5,
                     }}
                     src={spotlight.imageUrl}
                     alt={spotlight.title}
-                    width={300}
-                    height={450}
+                    width={400}
+                    height={280}
                   />
                 </div>
                 <h4 className="ateneo-spotlight-item-title">

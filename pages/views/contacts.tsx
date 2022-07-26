@@ -5,6 +5,8 @@ import details from "../../src/static/details.json";
 import { selectTopic } from "../../src/static/list";
 import { toast } from "react-toastify";
 import sendMessage2 from "../../src/functions/sendMessage";
+import Image from "next/image";
+import cont from "../../public/images/xxxx.jpg";
 
 export default function Contacts() {
   // FORM STATE
@@ -22,47 +24,45 @@ export default function Contacts() {
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    sendMessage2(form.email, form.name, form.topic, form.message)
-      .then((res) => {
-        if (res === "Please fill in all fields") {
-          setErrorCaution(true);
-          toast.error("It should not be empty!", {
-            position: "bottom-center",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          setTimeout(() => {
-            setErrorCaution(false);
-          }, 4000);
-        } else {
-          setButton("Sent");
-          toast.success("Your message wes sent successfuly", {
-            position: "bottom-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          setForm({
-            name: "",
-            email: "",
-            topic: "",
-            message: "",
-          });
-          setTimeout(() => {
-            setButton("Send");
-          }, 3000);
-        }
-      })
-      .catch((err) => {
-        throw new Error(err);
+    if (
+      form.name.length === 0 ||
+      form.email.length === 0 ||
+      form.message.length < 0
+    ) {
+      setErrorCaution(true);
+      toast.error("It should not be empty!", {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
+      setTimeout(() => {
+        setErrorCaution(false);
+      }, 4000);
+    } else {
+      setButton("Sent");
+      toast.success("Your message wes sent successfuly", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setForm({
+        name: "",
+        email: "",
+        topic: "",
+        message: "",
+      });
+      setTimeout(() => {
+        setButton("Send");
+      }, 3000);
+    }
   };
 
   return (
@@ -77,13 +77,9 @@ export default function Contacts() {
       </Head>
 
       <main className="">
-        <div className="h-40 bg-[#327CEA] flex justify-center items-center">
-          <h5 className="contact-title text-white text-2xl md:text-4xl">
-            {details.contacts.title}
-          </h5>
-        </div>
+        <div className="h-56 cons" />
         <div className="sub-container min-h-[500px] py-10 px-4 md:px-0">
-          <h1 className="contact-header-form text-2xl md:text-4xl text-center">
+          <h1 className="contact-header-form text-2xl md:text-4xl text-center text-[#3A53A4]">
             {details.contacts.header}
           </h1>
 
@@ -131,7 +127,7 @@ export default function Contacts() {
             />
 
             {/* BUTTON SUBMIT */}
-            <Button type="submit" value="Submit">
+            <Button type="submit" value="Submit" flat>
               {button}
             </Button>
           </form>

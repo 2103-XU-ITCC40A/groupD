@@ -21,7 +21,7 @@ import NextNProgress from "nextjs-progressbar";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="main-container">
-      <NextNProgress color="blue" />
+      <NextNProgress color="white" />
       <NextUIProvider>
         <context.Provider value={{}}>
           {/* THIS IS THE HEADER CHILD COMPONENT */}

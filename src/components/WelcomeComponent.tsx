@@ -6,7 +6,9 @@ export default function WelcomeComponent() {
       <div className="sub-container">
         <div className="welcome-labels">
           <p className="welcome-labels-one">Welcome to Xavier Ateneo</p>
-          <p className="welcome-labels-two">Experience Execellence</p>
+          <p className="welcome-labels-two tracking-wider">
+            Experience Excellence
+          </p>
         </div>
       </div>
     </div>

@@ -13,8 +13,8 @@ const Home = ({
   newsData,
   spotlightsData,
 }: {
-  newsData: NewsInterfaceComponent;
-  spotlightsData: SpotlightInterfaceComponent;
+  newsData: NewsInterface[];
+  spotlightsData: SpotlightInterface[];
 }) => {
   return (
     <div>
@@ -41,23 +41,12 @@ const Home = ({
 
 // PRE-RENDER BEFORE IT REACHES THE CLIENT
 export const getServerSideProps: GetServerSideProps = async () => {
-  // GET DATA FROM SERVER
-  const [news, spotlights] = await Promise.all([
-    fetch("http://localhost:3000/api/news"),
-    fetch("http://localhost:3000/api/spotlight"),
-  ]);
-
-  // PARSE DATA
-  const [newsData, spotlightsData] = await Promise.all([
-    news.json(),
-    spotlights.json(),
-  ]);
-
   // RETURN DATA
+
   return {
     props: {
-      newsData,
-      spotlightsData,
+      spotlightsData: ATENE_SPOTLIGHT,
+      newsData: ATENEO_NEWS,
     },
   };
 };
